@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Capitalize first letter
+name="hello world"
+echo "${name^}"
+
+# Capitalize all string
+echo "${name^^}"
+
+# Lower case all string
+name="HELLO WORLD"
+echo "${name,,}"
