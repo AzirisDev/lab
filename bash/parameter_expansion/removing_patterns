@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Remove suffix
+
+# remove pattern after dot
+filename="document.txt"
+echo "${filename%.txt}"
+
+# remove short pattern
+filename="backup.26.trx.txt"
+echo "${filename%.*}"
+
+# remove the longest pattern
+filename="backup.26.trx.txt"
+echo "${filename%%.*}"
+
+
+# Remove prefix
+
+filepath="/home/user/document.txt"
+# home/user/document.txt (shortest match)
+echo "${filepath#*/}"
+# document.txt (longest match - this is basename!
+echo "${filepath##*/}"
+
