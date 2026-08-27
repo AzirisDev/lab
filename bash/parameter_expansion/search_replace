@@ -1,0 +1,12 @@
+#!/bin/bash
+
+text="hello world world"
+
+# Replace first match
+echo "${text/world/hello}"
+
+# Replace every match
+echo "${text//world/hello}"
+
+# Delete match
+echo "${text// /}"
