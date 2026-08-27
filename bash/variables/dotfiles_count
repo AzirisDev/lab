@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Description: this script counts the number of files in dotfiles folder
+
+dotfiles_dir="$HOME/dotfiles"
+file_count=$(ls ${dotfiles_dir} | wc -l)
+date="$(date +%Y-%m-%d)"
+
+echo "=== Dotfiles info ==="
+echo "Dotfiles path: ${dotifles_dir}"
+echo "Files tracked: ${file_count}"
+echo "Date: ${date}"
+
+
+
