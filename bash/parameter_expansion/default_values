@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Use default value if empty or not set BUT do not change variable
+name=""
+echo "Hello, ${name:-Azim}"
+echo "${name}"
+
+# Set default value to variable if empty or not set
+name=""
+echo "Hello, ${name:=Azim}"
+echo "${name}"
