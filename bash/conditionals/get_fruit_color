@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ -z $1 || $1 == "--help" ]]; then
+	echo "Usage: ./get_fruit_color <fruit_name>"
+	exit 1
+fi
+
+case $1 in
+	apple)
+		echo "Apple is red"
+		exit 0
+		;;
+	banana)
+		echo "Banana is yellow"
+		exit 0
+		;;
+	kiwi)
+		echo "Kiwi is green"
+		exit 0
+		;;
+	*)
+		echo "I do not know any other fruit color"
+		exit 1
+		;;
+esac
+	
