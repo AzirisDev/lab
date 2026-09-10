@@ -15,5 +15,10 @@ spec:
         app: my-nginx
     spec:
       containers:
-      - image: nginx
-        name: nginx
+       - image: nginx:alpine
+         name: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
