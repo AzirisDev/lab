@@ -4,6 +4,7 @@
 #             srl3 -- host3
 
 name: routing-basics
+
 topology:
   nodes:
     srl1:
@@ -21,15 +22,14 @@ topology:
       image: ghcr.io/nokia/srlinux:24.10.1
       mgmt-ipv4: 172.20.20.13
 
-
     host1:
       kind: linux
       image: alpine:3.20
       exec:
         - apk add --no-cache iputils traceroute
-        - ip route delete default
         - ip link set eth1 up
         - ip addr add 10.1.1.2/24 dev eth1
+        - ip route delete default
         - ip route add default via 10.1.1.1 dev eth1
 
     host2:
@@ -37,9 +37,9 @@ topology:
       image: alpine:3.20
       exec:
         - apk add --no-cache iputils traceroute
-        - ip route delete default
         - ip link set eth1 up
         - ip addr add 10.1.4.2/24 dev eth1
+        - ip route delete default
         - ip route add default via 10.1.4.1 dev eth1
 
     host3:
@@ -47,14 +47,14 @@ topology:
       image: alpine:3.20
       exec:
         - apk add --no-cache iputils traceroute
-        - ip route delete default
         - ip link set eth1 up
         - ip addr add 10.1.5.2/24 dev eth1
+        - ip route delete default
         - ip route add default via 10.1.5.1 dev eth1
 
   links:
     - endpoints: ["host1:eth1", "srl1:e1-1"]
     - endpoints: ["srl1:e1-2", "srl2:e1-1"]
-    - endpoints: ["srl2:e1-3", "srl3:e1-1"]
+    - endpoints: ["srl1:e1-3", "srl3:e1-1"]
     - endpoints: ["srl2:e1-2", "host2:eth1"]
     - endpoints: ["srl3:e1-2", "host3:eth1"]
